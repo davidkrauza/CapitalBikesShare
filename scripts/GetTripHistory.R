@@ -1,9 +1,17 @@
 GetTripHistory <- function(){
+    if(!file.exists("../data/zip")){
+        dir.create("../data/zip")
+    }
+    if(!file.exists("../data/csv")){
+        dir.create("../data/csv")
+    }
+    
     #2010 Data
     if(!file.exists("../data/csv/2010-Q4-Trips-History-Data.csv")){
         if(!file.exists("../data/zip/2010-Q4-Trips-History-Data.zip")){
-            download.file("https://www.capitalbikeshare.com/assets/files/trip-history-data/2010-Q4-Trips-History-Data.zip"
-                      ,"../data/zip/2010-Q4-Trips-History-Data.zip", method="curl")
+                download.file("https://www.capitalbikeshare.com/assets/files/trip-history-data/2010-Q4-Trips-History-Data.zip"
+                      ,"../data/zip/2010-Q4-Trips-History-Data.zip"
+                      , method="curl", mode="wb")
         }
         unzip("../data/zip/2010-Q4-Trips-History.zip", exdir="../data/csv")
     }
@@ -65,7 +73,7 @@ GetTripHistory <- function(){
     }
     
     if(!file.exists("../data/csv/2012-Q3-Trips-History-Data.csv")){
-        if(!file.exists("../data/zip/2011-Q3-Trips-History-Data.zip")){
+        if(!file.exists("../data/zip/2012-Q3-Trips-History-Data.zip")){
             download.file("https://www.capitalbikeshare.com/assets/files/trip-history-data/2012-Q3-Trips-History-Data.zip"
                           ,"../data/zip/2012-Q3-Trips-History-Data.zip"
                           , method="curl")
