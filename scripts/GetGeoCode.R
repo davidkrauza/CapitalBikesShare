@@ -1,25 +1,40 @@
 #GetGeoCode <- function(){
     library('gmt')
     print(paste("Running GetGeoCode:", Sys.time()))
+    totRow <- nrow(data)
     for( i in 1:nrow(data)){
-        idx <- match(data[i,4], data.station$station)
-        idx2 <- match(data[i,5], data.station$station)
+        
+        startStation <- data[i,4]
+        endStation <- data[i,5]
+        idx <- match(startStation, data.station$station)
+        idx2 <- match(endStation, data.station$station)
         if(is.na(idx)){
-            idx <- match(data[1,4], data.station$name)
+            idx <- match(startStation, data.station$name)
         }       
         
         if(is.na(idx2)){
-            idx2 <- match(data[1,5], data.station$name)
+            idx2 <- match(endStation, data.station$name)
         }
         
-        data[i,9] <- data.station[idx,6]
-        data[i,10] <- data.station[idx,7]
-        data[i,11] <- data.station[idx2,6]
-        data[i,12] <- data.station[idx2,7]
-        data[i,13] <- geodist(data.station[idx,6],data.station[idx,7]
-                                   ,data.station[idx2,6], data.station[idx2,7]
-                                   ,units="km")
+        startStationLat <- data.station[idx,6]
+        startStationLon <- data.station[idx,7]
+        endStationLat <- data.station[idx2,6]
+        endStationLon <- data.station[idx2,7]
+        
+        print(paste("GetGeoCode: Processing",i,"of",totRow
+                    ,"start:",startStationLat, startStationLon
+                    , "end:", endStationLat, endStationLon))
+        
+        data[i,9] <- startStationLat
+        data[i,10] <- startStationLon
+        data[i,11] <- endStationLat
+        data[i,12] <- endStationLon
+        data[i,13] <- geodist(startStationLat,startStationLon
+                                   ,endStationLat, endStationLon ,units="km")
+        rm(idx)
+        rm(idx2)
     }
+    rm(totRow)
     colnames(data)[9] <- "Orig.Lat"
     colnames(data)[10] <- "Orig.Long"
     colnames(data)[11] <- "Dest.Lat"

@@ -6,7 +6,7 @@
 ##the geographic location of the bike stations and the Euclidian distance
 ##between the orgination and desitation bike station
 
-startTime <- Sys.time()
+startTime <-  Sys.time()
 print(paste("Beginning process @:",startTime))
 #source("GetElapsedDuration.R")
 #source("GetGeoCode.R")
@@ -26,7 +26,7 @@ if(!file.exists("../data/csv")){
 ##Station data is current as of March-2015
 ##If stations for trips represented in older data have been removed 
 ##they may not be represented in this file
-print("Checking for Station Data")
+print("Processing Station Data")
 if(!file.exists("../data/csv/CapitalBikeShare-Stations.csv")){  
     print("Downloading Station Data")
     xml.url <- 
@@ -38,10 +38,9 @@ if(!file.exists("../data/csv/CapitalBikeShare-Stations.csv")){
     print("Writing Station Data to File")
     write.csv(data.xml, "../data/csv/CapitalBikeShare-Stations.csv")    
 }
-print("Getting Station Data")
 data.station <- read.csv("../data/csv/CapitalBikeShare-Stations.csv")
 
-print("Checking for Q4 2010 Trip Data")
+print("Processing Q4 2010 Trip Data")
 #2010 Q4 Data
 if(!file.exists("../data/csv/2010-Q4-Trips-History-Duration-Distance.csv")){
     if(!file.exists("../data/csv/2010-Q4-Trips-History-Data.csv")){
@@ -71,7 +70,7 @@ if(!file.exists("../data/csv/2010-Q4-Trips-History-Duration-Distance.csv")){
 
 
 #2011 Q1 Data
-print("Checking for Q1 2011 Trip Data")
+print("Processing Q1 2011 Trip Data")
 if(!file.exists("../data/csv/2011-Q1-Trips-History-Duration-Distance.csv")){
     if(!file.exists("../data/csv/2011-Q1-Trips-History-Data.csv")){
         if(!file.exists("../data/zip/2011-Q1-Trips-History-Data.zip")){
@@ -95,6 +94,7 @@ if(!file.exists("../data/csv/2011-Q1-Trips-History-Duration-Distance.csv")){
 }
 
 #2011 Q2 Data
+print("Processing Q2 2011 Trip Data")
 if(!file.exists("../data/csv/2011-Q2-Trips-History-Duration-Distance.csv")){   
     if(!file.exists("../data/csv/2011-Q2-Trips-History-Data.csv")){
         if(!file.exists("../data/zip/2011-Q2-Trips-History-Data.zip")){
@@ -119,6 +119,7 @@ if(!file.exists("../data/csv/2011-Q2-Trips-History-Duration-Distance.csv")){
 }
 
 #2011 Q3 Data
+print("Processing Q3 2011 Trip Data")
 if(!file.exists("../data/csv/2011-Q3-Trips-History-Duration-Distance.csv")){
     if(!file.exists("../data/csv/2011-Q3-Trips-History-Data.csv")){
         if(!file.exists("../data/zip/2011-Q3-Trips-History-Data.zip")){
@@ -143,6 +144,7 @@ if(!file.exists("../data/csv/2011-Q3-Trips-History-Duration-Distance.csv")){
 }
 
 #2011 Q4 Data
+print("Processing Q4 2011 Trip Data")
 if(!file.exists("../data/csv/2011-Q4-Trips-History-Duration-Distance.csv")){
     if(!file.exists("../data/csv/2011-Q4-Trips-History-Data.csv")){
         if(!file.exists("../data/zip/2011-Q4-Trips-History-Data.zip")){
@@ -167,6 +169,7 @@ if(!file.exists("../data/csv/2011-Q4-Trips-History-Duration-Distance.csv")){
 }
 
 #2012 Q1 Data
+print("Processing Q1 2012 Trip Data")
 if(!file.exists("../data/csv/2012-Q1-Trips-History-Duration-Distance.csv")){
     if(!file.exists("../data/csv/2012-Q1-Trips-History-Data.csv")){
         if(!file.exists("../data/zip/2012-Q1-Trips-History-Data.zip")){
@@ -191,6 +194,7 @@ if(!file.exists("../data/csv/2012-Q1-Trips-History-Duration-Distance.csv")){
 }
 
 #2012 Q2 Data
+print("Processing Q2 2012 Trip Data")
 if(!file.exists("../data/csv/2012-Q2-Trips-History-Duration-Distance.csv")){
     if(!file.exists("../data/csv/2012-Q2-Trips-History-Data.csv")){
         if(!file.exists("../data/zip/2012-Q2-Trips-History-Data.zip")){
@@ -215,6 +219,7 @@ if(!file.exists("../data/csv/2012-Q2-Trips-History-Duration-Distance.csv")){
 }
 
 #2012 Q3 Data
+print("Processing Q3 2012 Trip Data")
 if(!file.exists("../data/csv/2012-Q3-Trips-History-Duration-Distance.csv")){
     if(!file.exists("../data/csv/2012-Q3-Trips-History-Data.csv")){
         if(!file.exists("../data/zip/2012-Q3-Trips-History-Data.zip")){
@@ -239,6 +244,7 @@ if(!file.exists("../data/csv/2012-Q3-Trips-History-Duration-Distance.csv")){
 }
 
 #2012 Q4 Data
+print("Processing Q4 2012 Trip Data")
 if(!file.exists("../data/csv/2012-Q4-Trips-History-Duration-Distance.csv")){
     if(!file.exists("../data/csv/2012-Q4-Trips-History-Data.csv")){
         if(!file.exists("../data/zip/2012-Q4-Trips-History-Data.zip")){
@@ -263,6 +269,7 @@ if(!file.exists("../data/csv/2012-Q4-Trips-History-Duration-Distance.csv")){
 }
     
 #2013 Q1 Data
+print("Processing Q1 2013 Trip Data")
 if(!file.exists("../data/csv/2013-Q1-Trips-History-Duration-Distance.csv")){
     if(!file.exists("../data/csv/2013-Q1-Trips-History-Data.csv")){
         if(!file.exists("../data/zip/2013-Q1-Trips-History-Data.zip")){
@@ -287,6 +294,7 @@ if(!file.exists("../data/csv/2013-Q1-Trips-History-Duration-Distance.csv")){
 }
 
 #2013 Q2 Data
+print("Processing Q2 2013 Trip Data")
 if(!file.exists("../data/csv/2013-Q1-Trips-History-Duration-Distance.csv")){
     if(!file.exists("../data/csv/2013-Q2-Trips-History-Data.csv")){
         if(!file.exists("../data/zip/2013-Q2-Trips-History-Data.zip")){
@@ -311,6 +319,7 @@ if(!file.exists("../data/csv/2013-Q1-Trips-History-Duration-Distance.csv")){
 }
 
 #2013 Q3 Data
+print("Processing Q3 2013 Trip Data")
 if(!file.exists("../data/csv/2013-Q3-Trips-History-Duration-Distance.csv")){
     if(!file.exists("../data/csv/2013-Q3-Trips-History-Data.csv")){
         if(!file.exists("../data/zip/2013-Q3-Trips-History-Data.zip")){
@@ -335,6 +344,7 @@ if(!file.exists("../data/csv/2013-Q3-Trips-History-Duration-Distance.csv")){
 }
 
 #2013 Q4 Data
+print("Processing Q4 2013 Trip Data")
 if(!.file.exists("../data/csv/2013-Q4-Trips-History-Duration-Distance.csv")){
     if(!file.exists("../data/csv/2013-Q4-Trips-History-Data2.csv")){
         if(!file.exists("../data/zip/2013-Q4-Trips-History-Data.zip")){
@@ -359,6 +369,7 @@ if(!.file.exists("../data/csv/2013-Q4-Trips-History-Duration-Distance.csv")){
 }
     
 #2014 Q1 Data
+print("Processing Q1 2014 Trip Data")
 if(!file.exists("../data/csv/2014-Q1-Trips-History-Duration-Distance.csv")){
     if(!file.exists("../data/csv/2014-Q1-Trips-History-Data2.csv")){
         if(!file.exists("../data/zip/2014-Q1-Trips-History-Data.zip")){
@@ -383,6 +394,7 @@ if(!file.exists("../data/csv/2014-Q1-Trips-History-Duration-Distance.csv")){
 }
 
 #2014 Q2 Data
+print("Processing Q2 2014 Trip Data")
 if(!file.exists("../data/csv/2014-Q2-Trips-History-Duration-Distance.csv")){    
     if(!file.exists("../data/csv/2014-Q2-Trips-History-Data2.csv")){
         if(!file.exists("../data/zip/2014-Q2-Trips-History-Data.zip")){
@@ -407,6 +419,7 @@ if(!file.exists("../data/csv/2014-Q2-Trips-History-Duration-Distance.csv")){
 }
 
 #2014 Q3 Data
+print("Processing Q3 2014 Trip Data")
 if(!file.exists("../data/csv/2014-Q3-Trips-History-Duration-Distance.csv")){
     if(!file.exists("../data/csv/2014-Q3-Trips-History-Data3.csv")){
         if(!file.exists("../data/zip/2014-Q3-Trips-History-Data.zip")){
@@ -431,6 +444,7 @@ if(!file.exists("../data/csv/2014-Q3-Trips-History-Duration-Distance.csv")){
 }
 
 #2014 Q4 Data
+print("Processing Q4 2014 Trip Data")
 if(!file.exists("../data/csv/2014-Q4-Trips-History-Duration-Distance.csv")){
     if(!file.exists("../data/csv/2014-Q4-Trips-History-Data.csv")){
         if(!file.exists("../data/zip/2014-Q4-Trips-History-Data.zip")){
