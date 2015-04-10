@@ -289,7 +289,7 @@ if(!file.exists("../../CapitalBikeShareData/csv/2013-Q1-Trips-History-Duration-D
 
 #2013 Q2 Data
 print("Processing Q2 2013 Trip Data")
-if(!file.exists("../../CapitalBikeShareData/csv/2013-Q1-Trips-History-Duration-Distance.csv")){
+if(!file.exists("../../CapitalBikeShareData/csv/2013-Q2-Trips-History-Duration-Distance.csv")){
     if(!file.exists("../../CapitalBikeShareData/csv/2013-Q2-Trips-History-Data.csv")){
         if(!file.exists("../../CapitalBikeShareData/zip/2013-Q2-Trips-History-Data.zip")){
             download.file("https://www.capitalbikeshare.com/assets/files/trip-history-data/2013-Q2-Trips-History-Data.zip"
